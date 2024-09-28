@@ -9,11 +9,8 @@ import MyProfile from './pages/MyProfile'
 import MyAppointments from './pages/MyAppointments'
 import Appointment from './pages/Appointment'
 import Navbar from './components/Navbar'
-<<<<<<< HEAD
 import TopDoctors from './components/TopDoctors'
-=======
 import Footer from './components/Footer'
->>>>>>> a4f678669153d13cd5536b887d0027789bdbabe8
 
 const App = () => {
   return (
