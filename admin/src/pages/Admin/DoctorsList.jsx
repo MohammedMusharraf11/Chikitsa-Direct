@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { AdminContext } from '../../context/AdminContext';
+import { changeAvailability } from '../../../../backend/controllers/doctorController';
 
 const DoctorsList = () => {
   const { doctors, aToken, getAllDoctors } = useContext(AdminContext);
@@ -29,6 +30,7 @@ const DoctorsList = () => {
               <p className="text-zinc-600 text-sm">{item.speciality}</p>
               <div className="mt-2 items-center gap-1 text-sm">
                 <input
+                  onChange={()=>changeAvailability(item._id)}
                   type="checkbox"
                   checked={item.available}
                   className="mr-2"

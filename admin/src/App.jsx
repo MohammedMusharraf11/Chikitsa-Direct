@@ -6,9 +6,9 @@ import { AdminContext } from './context/AdminContext';
 // import Navbar from './context/compNavbar';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
-import { Route, Routes } from 'react-router-dom';  // Corrected import
+import { Route, Routes } from 'react-router-dom';  
 import Dashboard from './pages/Admin/Dashboard';
-import AllApointments from './pages/Admin/AllApointments';  // Corrected typo
+import AllAppointments from './pages/Admin/AllAppointments';
 import AddDoctor from './pages/Admin/AddDoctor';
 // import DoctorsList from './pages/Admin/DoctorsList';
 import DoctorsList from './pages/Admin/DoctorsList';
@@ -34,7 +34,7 @@ const App = () => {
           {/*Admin Route*/}
           <Route path='/' element={<></>} />
           <Route path='/admin-dashboard' element={<Dashboard />} />
-          <Route path='/all-appointments' element={<AllApointments />} />
+          <Route path='/all-appointments' element={<AllAppointments />} />
           <Route path='/add-doctor' element={<AddDoctor />} />
           <Route path='/doctor-list' element={<DoctorsList />} />
 

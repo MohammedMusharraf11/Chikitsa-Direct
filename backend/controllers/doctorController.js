@@ -1,11 +1,24 @@
-import doctorModel from "../models/doctorModels"
+// import doctorModel from "../models/doctorModels"
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import React from 'react'
-import appointmentModel from "../models/appointmentModel"
+// import appointmentModel from "models/appointmentModel.js"
+import appointmentModel from '../models/appointmentModel.js';
+
+import doctorModel from "../models/doctorModels.js"
 
 
-
+const changeAvailability = async(req,res) => {
+  try {
+    const {docId} = req.body
+    const docData = await doctorModel.findById(docId)
+    await doctorModel.findByIdAndUpdate(docId,{available:!docData.available})
+    res.json({success:true,message:'Avalailablity Chnaged'})
+  } catch (error) {
+    console.log(error)
+      res.json({ success: false, message: error.message })
+  }
+}
 
 //API FOR DOCTOR LOGIN
 const loginDoctor = async (req, res) => {
@@ -83,6 +96,15 @@ const appointmentCancel = async (req,res) => {
       res.json({ success: false, message: error.message })
     }
   }
+
+const doctorList = async (req,res) => {
+  try {
+    const  doctors = await doctorModel.find({}).select(['-password','-email'])
+    res.json({success:true,doctors})
+  } catch (error) {
+    console.log(error)
+      res.json({ success: false, message: error.message }) 
+  }
+}
   
-    
-export { changeAvailability, doctorList, loginDoctor,appointmentsDoctor,appointmentCancel,appointmentComplete}
+export {changeAvailability, doctorList,loginDoctor,appointmentsDoctor,appointmentCancel,appointmentComplete}
