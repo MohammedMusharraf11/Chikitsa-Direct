@@ -18,7 +18,7 @@ const AppContextProvider = (props) => {
   // Fetching the doctor's data from the API
   const getDoctorsData = async () => {
     try {
-      const { data } = await axios.get(backendURL + 'api/doctor/list');
+      const { data } = await axios.get(backendURL + '/api/doctor/list');
       if (data.success) {
         setDoctors(data.doctors); // Use the correct key from the response
       } else {
