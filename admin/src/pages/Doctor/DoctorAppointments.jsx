@@ -6,9 +6,6 @@ import { assets } from '../../assets/assets'
 
 
 
-
-
-
 const DoctorAppointments = () => {
 
   const { dToken, appointments, getAppointments, completeAppointment, cancelAppointment } = useContext(DoctorContext)
